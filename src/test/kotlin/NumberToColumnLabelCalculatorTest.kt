@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+
 class NumberToColumnLabelCalculatorTest {
     private val sut = NumberToColumnLabelCalculator()
     @Test
@@ -21,5 +22,12 @@ class NumberToColumnLabelCalculatorTest {
         val expectation = arrayOf("Z", "AA", "AB").joinToString()
         val result = sut.numberToColumnLabel(26, 3).joinToString()
         assertEquals(expectation, result)
+    }
+
+    @Test
+    fun `should throw error if sequence labels exceeds ZZZ`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            sut.numberToColumnLabel(30 * 30 * 30, 2).joinToString()
+        }
     }
 }

@@ -9,6 +9,10 @@ class NumberToColumnLabelCalculator {
             current++
         }
 
+        if (result.last().length > 3) {
+            throw IllegalArgumentException("Sequence exceeds ZZZ.")
+        }
+
         return result.toTypedArray()
     }
 
