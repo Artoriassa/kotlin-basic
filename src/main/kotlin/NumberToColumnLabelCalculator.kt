@@ -4,8 +4,11 @@ class NumberToColumnLabelCalculator {
         val result = mutableListOf<String>()
         val sb = StringBuilder()
         var num = start
-        num--
-        sb.insert(0, ('A' + num.rem(26)))
+        while(num > 0) {
+            num--
+            sb.insert(0, ('A' + num.rem(26)))
+            num /= 26
+        }
         result.add(sb.toString())
 
         return result.toTypedArray()

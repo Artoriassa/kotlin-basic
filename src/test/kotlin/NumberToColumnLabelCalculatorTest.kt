@@ -8,4 +8,11 @@ class NumberToColumnLabelCalculatorTest {
         val result = sut.numberToColumnLabel(26, 1).joinToString()
         assertEquals(expectation, result)
     }
+
+    @Test
+    fun `should return single sequence label from A to ZZZ`() {
+        val expectation = arrayOf("AB").joinToString()
+        val result = sut.numberToColumnLabel(28, 1).joinToString()
+        assertEquals(expectation, result)
+    }
 }
