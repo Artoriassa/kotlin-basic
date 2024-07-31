@@ -1,5 +1,7 @@
 class NumberToColumnLabelCalculator {
     fun numberToColumnLabel(start: Int, count: Int): Array<String> {
+        require(start > 0) { "Starting sequence number must be greater than zero." }
+        require(count > 0) { "Count must be greater than zero." }
 
         val result = mutableListOf<String>()
         var current = start

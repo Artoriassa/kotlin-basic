@@ -25,9 +25,16 @@ class NumberToColumnLabelCalculatorTest {
     }
 
     @Test
-    fun `should throw error if sequence labels exceeds ZZZ`() {
+    fun `should throw error if starting sequence number less than 1`() {
         assertThrows(IllegalArgumentException::class.java) {
-            sut.numberToColumnLabel(30 * 30 * 30, 2).joinToString()
+            sut.numberToColumnLabel(0, 2).joinToString()
+        }
+    }
+
+    @Test
+    fun `should throw error if number of results less than 1`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            sut.numberToColumnLabel(3, 0).joinToString()
         }
     }
 }
