@@ -5,18 +5,23 @@ class NumberToColumnLabelCalculator {
         var current = start
 
         repeat(count) {
-            val sb = StringBuilder()
-            var num = current
-
-            while (num > 0) {
-                num--
-                sb.insert(0, ('A' + num.rem(26)))
-                num /= 26
-            }
-            result.add(sb.toString())
+            result.add(convertNumberToColumnLabel(current))
             current++
         }
 
         return result.toTypedArray()
+    }
+
+    private fun convertNumberToColumnLabel(number: Int): String {
+        val sb = StringBuilder()
+        var remainder = number
+
+        while (remainder > 0) {
+            remainder--
+            sb.insert(0, ('A' + remainder % 26))
+            remainder /= 26
+        }
+
+        return sb.toString()
     }
 }
