@@ -21,4 +21,5 @@ fun main(args: Array<String>) {
     val numberToColumnLabelCalculator = NumberToColumnLabelCalculator()
     println(numberToColumnLabelCalculator.numberToColumnLabel(26,1).joinToString())
     println(numberToColumnLabelCalculator.numberToColumnLabel(28,1).joinToString())
+    println(numberToColumnLabelCalculator.numberToColumnLabel(26,3).joinToString())
 }

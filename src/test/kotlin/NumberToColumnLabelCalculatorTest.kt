@@ -15,4 +15,11 @@ class NumberToColumnLabelCalculatorTest {
         val result = sut.numberToColumnLabel(28, 1).joinToString()
         assertEquals(expectation, result)
     }
+
+    @Test
+    fun `should return multi sequence labels from A to ZZZ`() {
+        val expectation = arrayOf("Z", "AA", "AB").joinToString()
+        val result = sut.numberToColumnLabel(26, 3).joinToString()
+        assertEquals(expectation, result)
+    }
 }
