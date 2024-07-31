@@ -16,4 +16,8 @@ fun main(args: Array<String>) {
     )
 
     printUtil.printTable(headers, rows)
+
+
+    val numberToColumnLabelCalculator = NumberToColumnLabelCalculator()
+    println(numberToColumnLabelCalculator.numberToColumnLabel(26,1).joinToString())
 }
