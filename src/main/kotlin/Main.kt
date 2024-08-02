@@ -1,4 +1,6 @@
 import com.thoughtworks.kotlin_basic.util.PrintUtil
+import kotlinx.coroutines.runBlocking
+import repository.ProductRepository
 
 fun main(args: Array<String>) {
     println("Hello World!")
@@ -22,4 +24,12 @@ fun main(args: Array<String>) {
     println(numberToColumnLabelCalculator.numberToColumnLabel(26,1).joinToString())
     println(numberToColumnLabelCalculator.numberToColumnLabel(28,1).joinToString())
     println(numberToColumnLabelCalculator.numberToColumnLabel(26,3).joinToString())
+
+    runBlocking {
+        val repo = ProductRepository()
+        val products = repo.fetchProducts()
+        products.forEach { product ->
+            println("SKU: ${product.sku}, Name: ${product.name}, Price: ${product.price}, Type: ${product.type}, Image: ${product.image}, Stock: ${product.stock}")
+        }
+    }
 }
