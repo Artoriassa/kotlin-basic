@@ -2,12 +2,12 @@ package model
 
 data class Product(
     val id: String,
-    val sku: String,
+    val SKU: String,
     val name: String,
-    val price: Double,
+    var price: Double,
     val type: ProductType,
     val image: String,
-    var stock: Int?
+    var stock: Int = 0
 )
 
 enum class ProductType {

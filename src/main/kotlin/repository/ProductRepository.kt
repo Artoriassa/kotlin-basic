@@ -1,4 +1,5 @@
 package repository
+import model.Inventory
 import model.Product
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,5 +15,9 @@ class ProductRepository {
 
     suspend fun fetchProducts(): List<Product> {
         return productService.getProducts()
+    }
+
+    suspend fun fetchInventories(): List<Inventory> {
+        return productService.getInventories()
     }
 }
