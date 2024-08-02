@@ -28,8 +28,12 @@ fun main(args: Array<String>) {
     runBlocking {
         val repo = ProductRepository()
         val products = repo.fetchProducts()
+        val inventories = repo.fetchInventories()
         products.forEach { product ->
             println("SKU: ${product.sku}, Name: ${product.name}, Price: ${product.price}, Type: ${product.type}, Image: ${product.image}, Stock: ${product.stock}")
+        }
+        inventories.forEach { inventory ->
+            println("SKU: ${inventory.sku}, Zone: ${inventory.zone}, Quantity: ${inventory.quantity}")
         }
     }
 }
