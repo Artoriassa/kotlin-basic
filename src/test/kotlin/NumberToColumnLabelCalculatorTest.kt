@@ -37,4 +37,11 @@ class NumberToColumnLabelCalculatorTest {
             sut.numberToColumnLabel(3, 0).joinToString()
         }
     }
+
+    @Test
+    fun `should throw error if Sequence exceeds ZZZ`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            sut.numberToColumnLabel(27 * 27 * 27, 0).joinToString()
+        }
+    }
 }
